@@ -75,7 +75,7 @@ export function Post({ post }: { post: SanityDocument }) {
         <div className="flex gap-2">
           {tags !== null
             ? // @ts-ignore
-              tags.map(({ label, _key }) => <Tag key={_key} name={label} />)
+              tags.map((tag, index) => <Tag key={index} name={tag} />)
             : null}
         </div>
         <h1 className="font-libreBaskerville text-[60px] font-bold text-white">

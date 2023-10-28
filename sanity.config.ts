@@ -5,7 +5,6 @@
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
-import { tags } from "sanity-plugin-tags";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from "./src/sanity/env";
@@ -23,6 +22,5 @@ export default defineConfig({
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
-    tags({}),
   ],
 });

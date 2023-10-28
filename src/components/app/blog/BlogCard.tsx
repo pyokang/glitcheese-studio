@@ -29,7 +29,7 @@ export const BlogCard = (props: SanityDocument) => {
         <div className="mt-[30px] flex w-full flex-wrap">
           {tags !== null
             ? // @ts-ignore
-              tags.map(({ label, _key }) => <Tag key={_key} name={label} />)
+              tags.map((tag, index) => <Tag key={index} name={tag} />)
             : null}
         </div>
       </div>

@@ -49,7 +49,14 @@ export default defineType({
     defineField({
       name: "tags",
       title: "Tags",
-      type: "tags",
+      type: "array",
+      of: [
+        {
+          type: "string",
+          name: "tag",
+          title: "Tag",
+        },
+      ],
     }),
     defineField({
       name: "publishedAt",
