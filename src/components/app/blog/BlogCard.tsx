@@ -15,13 +15,15 @@ export const BlogCard = (props: SanityDocument) => {
   return (
     <Link href={`/blog/${slug.current}`}>
       <div className="flex flex-col">
-        <Image
-          src={builder.image(mainImage).url()}
-          width={width}
-          height={height}
-          className="object-contain w-full"
-          alt={props?.mainImage?.alt}
-        />
+        <div className="relative h-[250px]">
+          <Image
+            src={builder.image(mainImage).url()}
+            fill
+            sizes="100vw"
+            className="object-cover"
+            alt={props?.mainImage?.alt}
+          />
+        </div>
         <h2 className="font-libreBaskerville text-[32px] font-bold mt-[30px]">
           {title}
         </h2>

@@ -39,13 +39,10 @@ export default async function Blog() {
       </div>
 
       <section
-        className={clsx(
-          "grid w-full h-full gap-10 px-20 pb-[80px] lg:grid-cols-3 sm:grid-cols-2 grid-cols-1",
-          {
-            "grid-cols-1": posts.length === 1,
-            "grid-cols-2": posts.length === 2,
-          }
-        )}
+        className={clsx("grid w-full h-full gap-10 px-20 pb-[80px]", {
+          "lg:grid-cols-3 sm:grid-cols-2 grid-cols-1": posts.length >= 2,
+          "grid-cols-2": posts.length < 2,
+        })}
       >
         {posts.length > 0
           ? posts.map((post) => <BlogCard key={post._id} {...post} />)
