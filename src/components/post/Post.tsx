@@ -78,14 +78,14 @@ export function Post({ post }: { post: SanityDocument }) {
               tags.map((tag, index) => <Tag key={index} name={tag} />)
             : null}
         </div>
-        <h1 className="font-libreBaskerville text-[60px] font-bold text-white">
+        <h1 className="font-libreBaskerville text-[52px] font-bold text-white px-20 text-center">
           {title}
         </h1>
       </div>
 
       {/* Image */}
       {/* Temporarily adding -z-10 to avoid collision with the navbar */}
-      <div className="w-full relative h-[600px] -z-10 mt-10">
+      <div className="w-full relative h-[600px] mt-10">
         <Image
           src={builder.image(mainImage).url()}
           alt={mainImage?.alt}
@@ -97,7 +97,7 @@ export function Post({ post }: { post: SanityDocument }) {
       </div>
 
       {/* Content */}
-      <article className="container prose prose-lg px-20 !text-white mt-10">
+      <article className="container prose prose-lg px-20 !text-white mt-10 mx-auto mb-20">
         {post?.content ? (
           // @ts-ignore
           <PortableText value={content} components={serializer} />
