@@ -25,7 +25,9 @@ export const BlogCard = (props: SanityDocument) => {
         <h2 className="font-libreBaskerville text-[32px] font-bold mt-[30px]">
           {title}
         </h2>
-        <p className="text-[20px] font-normal mt-[8px]">{description}</p>
+        <p className="text-[20px] font-normal mt-[8px] line-clamp-3">
+          {description}
+        </p>
         <div className="mt-[30px] flex w-full flex-wrap">
           {tags !== null
             ? // @ts-ignore
