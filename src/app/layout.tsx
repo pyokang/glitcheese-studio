@@ -5,7 +5,6 @@ import "./globals.css";
 const redHatDisplay = Red_Hat_Display({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-redHatDisplay",
 });
 
 const libreBaskerville = Libre_Baskerville({
@@ -27,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${redHatDisplay.variable} ${libreBaskerville.variable}`}
+        className={`${redHatDisplay.className} ${libreBaskerville.variable} antialiased`}
       >
         {children}
       </body>

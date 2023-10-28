@@ -1,12 +1,12 @@
 import { draftMode } from "next/headers";
 import { BlogCard } from "../../../components/app/blog/BlogCard";
-import { blogCards } from "../../../constants";
 import { Metadata } from "next";
 import { sanityFetch, token } from "@/sanity/lib/sanityFetch";
 import { PreviewPosts } from "@/components/post/PreviewPosts";
 import { PreviewProvider } from "@/context/PreviewProvider";
 import { SanityDocument } from "next-sanity";
 import { postsQuery } from "@/sanity/lib/queries";
+import clsx from "clsx";
 
 export const metadata: Metadata = {
   title: "Glitcheese Studio",
@@ -31,29 +31,26 @@ export default async function Blog() {
         <h1 className="font-libreBaskerville text-[60px] font-bold text-center">
           Curious Corner
         </h1>
-        <p className="font-redHatDisplay text-[20px] font-normal text-center mt-[12px]">
+        <p className="text-[20px] font-normal text-center mt-[12px]">
           Welcome to the Curious Corner, a space where we share our knowledge,
           perspective, and experiences. Good news is, it’s all free resources
           for you! So, feel free to dive deep into the World of Branding!
         </p>
       </div>
 
-      <section className="flex w-full h-full gap-x-[60px] px-20 pb-[80px]">
-        <div className="flex-1 h-full flex flex-col shrink-0 gap-y-[60px]">
-          {blogCards.slice(0, 2).map((blogCard) => (
-            <BlogCard {...blogCard} key={blogCard.id} />
-          ))}
-        </div>
-        <div className="flex-1 h-full flex flex-col shrink-0 gap-y-[60px]">
-          {blogCards.slice(2, 4).map((blogCard) => (
-            <BlogCard {...blogCard} key={blogCard.id} />
-          ))}
-        </div>
-        <div className="flex-1 h-full flex flex-col shrink-0 gap-y-[60px]">
-          {blogCards.slice(4).map((blogCard) => (
-            <BlogCard {...blogCard} key={blogCard.id} />
-          ))}
-        </div>
+      <section
+        className={clsx(
+          "grid w-full h-full gap-10 px-20 pb-[80px] lg:grid-cols-3 sm:grid-cols-2 grid-cols-1",
+          {
+            "grid-cols-1": posts.length === 1,
+            "grid-cols-2": posts.length === 2,
+          }
+        )}
+      >
+        {posts.length > 0
+          ? posts.map((post) => <BlogCard key={post._id} {...post} />)
+          : // No blog yet...
+            null}
       </section>
     </div>
   );
