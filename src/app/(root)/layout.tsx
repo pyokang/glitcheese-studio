@@ -3,9 +3,11 @@ import { Navbar } from "@/components/shared/navbar";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <main className="relative bg-black text-white ">
-      <Navbar />
-      <section className="flex">{children}</section>
-    </main>
+    <div className="flex h-screen flex-col bg-black text-white">
+      <div className="w-full flex-none">
+        <Navbar />
+      </div>
+      <div className="flex-grow overflow-y-auto">{children}</div>
+    </div>
   );
 }
