@@ -4,7 +4,7 @@ import React from "react";
 
 export const Navbar = () => {
   return (
-    <nav className="sticky top-0 w-full flex items-center px-[80px] py-6 justify-between bg-black">
+    <nav className="sticky top-0 w-full flex items-center px-[80px] py-6 justify-between bg-black z-10 gap-4">
       <Link href="/">
         <Image
           src="/assets/icons/glitcheese-studio.svg"
